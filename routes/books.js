@@ -15,20 +15,17 @@ function asyncHandler(cb){
 
 /* GET Shows the full list of books. */
 router.get("/", asyncHandler(async (req, res) => {
-  console.log("Shows the full list of books.");
   const books = await Book.findAll({ order: [["title", "ASC"]] });
   res.render("books/index", { books, title: "Books" });
 }));
 
 /* Shows the create new book form. */
 router.get("/new", (req, res) => {
-  //res.render("books/new-book", { book: Book.build(), title: "New Book" });
   res.render("books/new-book", { book: {}, title: "New Book" });
 });
 
 /* POST Posts a new book to the database. */
 router.post('/new', asyncHandler(async (req, res) => {
-  console.log("Posts a new book to the database.");
   let book;
   try {
     book = await Book.create(req.body);
