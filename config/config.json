@@ -10,6 +10,6 @@
   "production": {
 
     "dialect": "sqlite",
-    "storage": "production.db"
+    "storage": "library.db"
   }
 }
