@@ -5,8 +5,6 @@ const books = require('./routes/books');
 
 const app = express();
 
-console.log("Hello World");
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
