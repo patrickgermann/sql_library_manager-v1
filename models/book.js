@@ -6,7 +6,11 @@ module.exports = (sequelize) => {
   Book.init({
     title: {
       type: Sequelize.STRING,
+      allowNull: false,
       validate: {
+        notNull: {
+          msg: '"Title" is required'
+        },
         notEmpty: {
           msg: '"Title" is required'
         }
@@ -14,14 +18,40 @@ module.exports = (sequelize) => {
     },
     author: {
       type: Sequelize.STRING,
+      allowNull: false,
       validate: {
+        notNull: {
+          msg: '"Author" is required'
+        },
         notEmpty: {
           msg: '"Author" is required'
         }
       }
     },
-    genre: Sequelize.STRING,
-    year: Sequelize.INTEGER
+    genre: {
+      type: Sequelize.STRING,
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: '"Genre" is required'
+        },
+        notEmpty: {
+          msg: '"Genre" is required'
+        }
+      }
+    },
+    year: {
+      type: Sequelize.INTEGER,
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: '"Year" is required'
+        },
+        notEmpty: {
+          msg: '"Year" is required'
+        }
+      }
+    }
   }, { sequelize });
 
   return Book;
